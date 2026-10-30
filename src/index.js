@@ -25,12 +25,23 @@ function Menu() {
   );
 }
 function Footer() {
-  //*JSX way:
+  //* some JS logic
+  const hour = new Date().getHours();
+  const openHour = 12;
+  const closeHour = 24;
+  const isOpen = hour >= openHour && hour <= closeHour;
+  console.log(hour);
+  console.log(isOpen);
+  // console.log(
+  //   isOpen ? alert("We're currently open!") : alert("Sorry! We're closed!"),
+  // );
+
+  //*JSX way of returning component:
   return (
     <footer>{new Date().toLocaleTimeString()}. We're currently open!</footer>
   );
 
-  //*pure react way:
+  //*Pure React way of returning component:
   // const time = new Date().toLocaleTimeString()
   // return React.createElement("footer",null,`${time}. We're currently open!`)
 }
