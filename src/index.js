@@ -1,9 +1,10 @@
 import React from "react";
 import ReactDom from "react-dom/client";
+import "./index.css";
 
 function App() {
   return (
-    <div>
+    <div className="container">
       <Header />
       <Menu />
       <Footer />
@@ -11,17 +12,25 @@ function App() {
   );
 }
 function Header() {
-  return <h1>Fast React Pizza Co.</h1>;
+  //* inline css style:
+  // return <h1 style={{color:"red", fontSize:"48px", textTransform:"uppercase"}}>Fast React Pizza Co.</h1>;
+
+  //* external css style
+  return (
+    <header className="header">
+      <h1>Fast React Pizza Co.</h1>
+    </header>
+  );
 }
 function Menu() {
   return (
-    <div>
+    <main className="menu">
       <h2>Our menu</h2>
       <Pizza />
       <Pizza />
       <Pizza />
       <Pizza />
-    </div>
+    </main>
   );
 }
 function Footer() {
@@ -38,7 +47,7 @@ function Footer() {
 
   //*JSX way of returning component:
   return (
-    <footer>{new Date().toLocaleTimeString()}. We're currently open!</footer>
+    <footer className="footer">{new Date().toLocaleTimeString()}. We're currently open!</footer>
   );
 
   //*Pure React way of returning component:
@@ -49,7 +58,7 @@ function Pizza() {
   return (
     <div>
       <img src="pizzas/spinaci.jpg" alt="pizza spinaci" />
-      <h2>Pizza Spinaci</h2>
+      <h3>Pizza Spinaci</h3>
       <p>Tomato, mozarella, spinach, and ricotta cheese</p>
     </div>
   );
