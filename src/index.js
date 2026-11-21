@@ -26,11 +26,31 @@ function Menu() {
   return (
     <main className="menu">
       <h2>Our menu</h2>
-      <Pizza />
-      <Pizza />
-      <Pizza />
-      <Pizza />
+      <Pizza
+        name="Pizza Spinaci"
+        ingredients="Tomato, mozarella, spinach, and ricotta cheese"
+        photoName="pizzas/spinaci.jpg"
+        price={12}
+      />
+      <Pizza
+        name="Pizza Funghi"
+        ingredients="Tomato, mozarella, mushrooms, and onion"
+        photoName="pizzas/funghi.jpg"
+        price={12}
+      />
     </main>
+  );
+}
+function Pizza(props) {
+  return (
+    <div className="pizza">
+      <img src={props.photoName} alt={props.name} />
+      <div>
+        <h3>{props.name}</h3>
+        <p>{props.ingredients}</p>
+        <span>{props.price}</span>
+      </div>
+    </div>
   );
 }
 function Footer() {
@@ -47,22 +67,16 @@ function Footer() {
 
   //*JSX way of returning component:
   return (
-    <footer className="footer">{new Date().toLocaleTimeString()}. We're currently open!</footer>
+    <footer className="footer">
+      {new Date().toLocaleTimeString()}. We're currently open!
+    </footer>
   );
 
   //*Pure React way of returning component:
   // const time = new Date().toLocaleTimeString()
   // return React.createElement("footer",null,`${time}. We're currently open!`)
 }
-function Pizza() {
-  return (
-    <div>
-      <img src="pizzas/spinaci.jpg" alt="pizza spinaci" />
-      <h3>Pizza Spinaci</h3>
-      <p>Tomato, mozarella, spinach, and ricotta cheese</p>
-    </div>
-  );
-}
+
 const root = ReactDom.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
