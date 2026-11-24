@@ -101,6 +101,8 @@ function Menu() {
   );
 }
 function Pizza(props) {
+  if (props.pizzaObj.soldOut) return null; //we can have multiple returns if we want an entirely different component to render under a condition
+
   return (
     <li className="pizza">
       <img src={props.pizzaObj.photoName} alt={props.pizzaObj.name} />
@@ -132,7 +134,9 @@ function Footer() {
           <button className="btn">Order</button>
         </div>
       ) : (
-        <p>We're happy to welcome you between {openHour}:00 and {closeHour}:00.</p>
+        <p>
+          We're happy to welcome you between {openHour}:00 and {closeHour}:00.
+        </p>
       )}
     </footer>
   );
